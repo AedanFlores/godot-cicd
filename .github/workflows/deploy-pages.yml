@@ -37,13 +37,13 @@ jobs:
         run: |
           mkdir -p ~/.local/bin ~/.local/share/godot/export_templates
           if [ ! -f ~/.local/bin/godot ]; then
-            curl -fSL "https://github.com/godotengine/godot/releases/download/${GODOT_VERSION}/Godot_${GODOT_VERSION}_linux.x86_64.zip" -o /tmp/godot.zip
+            curl -fSL "https://github.com/godotengine/godot/releases/download/${GODOT_VERSION}/Godot_v${GODOT_VERSION}_linux.x86_64.zip" -o /tmp/godot.zip
             unzip -o /tmp/godot.zip -d /tmp
-            mv "/tmp/Godot_${GODOT_VERSION}_linux.x86_64" ~/.local/bin/godot
+            mv "/tmp/Godot_v${GODOT_VERSION}_linux.x86_64" ~/.local/bin/godot
             chmod +x ~/.local/bin/godot
           fi
           if [ ! -d ~/.local/share/godot/export_templates/${GODOT_VERSION/-/.} ]; then
-            curl -fSL "https://github.com/godotengine/godot/releases/download/${GODOT_VERSION}/Godot_${GODOT_VERSION}_export_templates.tpz" -o /tmp/templates.tpz
+            curl -fSL "https://github.com/godotengine/godot/releases/download/${GODOT_VERSION}/Godot_v${GODOT_VERSION}_export_templates.tpz" -o /tmp/templates.tpz
             mkdir -p /tmp/templates && unzip -o /tmp/templates.tpz -d /tmp/templates
             mv /tmp/templates/templates ~/.local/share/godot/export_templates/${GODOT_VERSION/-/.}
           fi
